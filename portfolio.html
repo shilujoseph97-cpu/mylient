@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio | MyLient</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080510;
+    color: white;
+}
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 7%;
+    border-bottom: 1px solid #35203e;
+}
+
+.logo {
+    color: white;
+    font-size: 32px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #dc4eea;
+}
+
+.logo small {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #e45aff;
+}
+
+/* PORTFOLIO HEADER */
+
+.portfolio-header {
+    text-align: center;
+    padding: 90px 20px 55px;
+}
+
+.portfolio-header .tag {
+    color: #e45aff;
+    letter-spacing: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.portfolio-header h1 {
+    font-size: clamp(38px, 6vw, 65px);
+    margin-bottom: 18px;
+}
+
+.portfolio-header h1 span {
+    background: linear-gradient(90deg, #ef62d9, #a52cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.portfolio-header p {
+    color: #c5bdce;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* PROJECT GRID */
+
+.portfolio-grid {
+    max-width: 1250px;
+    margin: auto;
+    padding: 20px 25px 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: #171020;
+    border: 1px solid #493052;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-7px);
+    border-color: #dc4eea;
+    box-shadow: 0 12px 30px #a52cff25;
+}
+
+.project-card img {
+    width: 100%;
+    height: 390px;
+    object-fit: contain;
+    display: block;
+    background: #100b18;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.project-info p {
+    color: #b9afc4;
+    font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #aaa;
+    border-top: 1px solid #35203e;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+    nav {
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        padding: 15px 18px 60px;
+    }
+
+    .project-card img {
+        height: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html" class="logo">
+        My<span>Lient.</span>
+        <small>Digital Marketing</small>
+    </a>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+</nav>
+
+<section class="portfolio-header">
+    <div class="tag">OUR PORTFOLIO</div>
+
+    <h1>Our Creative <span>Work</span></h1>
+
+    <p>
+        Ideas Designed. Brands Elevated.<br>
+        Explore our creative projects and brand campaigns.
+    </p>
+</section>
+
+<section class="portfolio-grid">
+
+    <div class="project-card">
+        <img src="images/acute-erp.png" alt="Acute ERP">
+        <div class="project-info">
+            <h3>Acute Tech</h3>
+            <p>ERP Software Campaign</p>
+        </div>
+    </div>
+
+    <div class="project-card">
+    <img src="images/acute-business.png" alt="Acute Business Solutions">
+    <div class="project-info">
+        <h3>Acute Tech</h3>
+        <p>Corporate Branding</p>
+    </div>
+
+    </div>
+
+    <div class="project-card">
+    <img src="images/acute-solutions.png" alt="Acute ERP Solutions">
+
+    <div class="project-info">
+        <h3>Acute Tech</h3>
+        <p>ERP Solutions Campaign</p>
+    </div>
+</div>
+
+    <div class="project-card">
+    <img src="images/perfume4ever.png" alt="Perfume 4 Ever">
+
+    <div class="project-info">
+        <h3>Perfume 4 Ever</h3>
+        <p>Perfume Product Advertising</p>
+    </div>
+</div>
+
+    <div class="project-card">
+    <img src="images/prime-property.png" alt="Prime Property Ventures">
+
+    <div class="project-info">
+        <h3>Prime Property Ventures</h3>
+        <p>Real Estate Advertising</p>
+    </div>
+</div>
+    <div class="project-card">
+    <img src="images/majan-land.png" alt="Majan Land Logistics">
+
+    <div class="project-info">
+        <h3>Majan Land</h3>
+        <p>Customs Clearance & Logistics Advertising</p>
+    </div>
+</div>
+</section>
+
+<footer>
+    © 2026 MyLient. All Rights Reserved.
+</footer>
+
+</body>
+</html>

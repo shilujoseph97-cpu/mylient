@@ -1,63 +1,22 @@
-AOS.init({
-    duration: 1000,
-    once: true
-});
-// Back To Top Button
+document.addEventListener("DOMContentLoaded", function () {
 
-const topBtn = document.getElementById("topBtn");
+    const astronaut = document.querySelector(".astronaut");
 
-window.onscroll = function () {
+    console.log("Astronaut found:", astronaut);
 
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        topBtn.style.display = "block";
-    } else {
-        topBtn.style.display = "none";
+    if (astronaut) {
+        astronaut.animate(
+            [
+                { transform: "translateY(0px)" },
+                { transform: "translateY(-100px)" },
+                { transform: "translateY(0px)" }
+            ],
+            {
+                duration: 2000,
+                iterations: Infinity,
+                easing: "ease-in-out"
+            }
+        );
     }
 
-};
-
-topBtn.addEventListener("click", function () {
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
 });
-// Counter Animation
-
-const counters = document.querySelectorAll(".counter");
-
-counters.forEach(counter => {
-
-    const updateCounter = () => {
-
-        const target = +counter.getAttribute("data-target");
-        const count = +counter.innerText;
-
-        const increment = Math.ceil(target / 100);
-
-        if (count < target) {
-            counter.innerText = count + increment;
-            setTimeout(updateCounter, 30);
-        } else {
-            counter.innerText = target + "+";
-        }
-
-    };
-
-    updateCounter();
-
-});
-// Mobile Menu
-
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
-
-if (menuToggle && navLinks) {
-
-    menuToggle.addEventListener("click", function () {
-        navLinks.classList.toggle("active");
-    });
-
-}

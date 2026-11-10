@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | MyLient</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #08050e;
+    color: white;
+    overflow-x: hidden;
+}
+
+.page {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 30%, #24102f 0%, transparent 55%),
+        #08050e;
+}
+
+/* BACKGROUND EFFECT */
+
+.page::before,
+.page::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    border: 1px solid rgba(221, 55, 255, .25);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 15px #c52aff);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.page::before {
+    top: 100px;
+    left: -420px;
+    transform: rotate(25deg);
+}
+
+.page::after {
+    bottom: -120px;
+    right: -350px;
+    transform: rotate(-25deg);
+}
+
+/* NAVIGATION */
+
+nav {
+    min-height: 105px;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(237,112,233,.2);
+    position: relative;
+    z-index: 5;
+}
+
+.logo {
+    color: white;
+    font-size: 38px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #df45df;
+}
+
+.logo small {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: .3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+    color: #ed70e9;
+}
+
+.nav-links .active {
+    border-bottom: 2px solid #ed70e9;
+    padding-bottom: 12px;
+}
+
+/* HEADING */
+
+.heading {
+    text-align: center;
+    padding: 65px 15px 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.heading .label {
+    color: #e6a0eb;
+    letter-spacing: 7px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+.heading h1 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    margin-bottom: 18px;
+}
+
+.heading h1 span {
+    background: linear-gradient(100deg, #ed70e9, #b52cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.heading p {
+    color: #e0d9e5;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* SERVICES GRID */
+
+.services-grid {
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+    padding: 0 15px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    position: relative;
+    z-index: 1;
+}
+
+.service-card {
+    width: 100%;
+    min-width: 0;
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(190, 75, 220, .65);
+    border-radius: 22px;
+    background: #17101d;
+}
+
+.service-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    transition: transform .5s ease;
+}
+
+.service-card:hover img {
+    transform: scale(1.05);
+}
+
+.service-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        90deg,
+        rgba(12,7,17,.96) 0%,
+        rgba(12,7,17,.86) 42%,
+        rgba(12,7,17,.08) 100%
+    );
+}
+
+/* CARD CONTENT */
+
+.card-content {
+    position: absolute;
+    z-index: 2;
+    top: 28px;
+    left: 30px;
+    width: 55%;
+    color: white;
+}
+
+.icon {
+    width: 62px;
+    height: 62px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    font-size: 31px;
+    background: rgba(151,55,177,.4);
+    border: 1px solid #a64cb7;
+    margin-bottom: 15px;
+    box-shadow: 0 0 20px rgba(220,50,255,.12);
+}
+
+.card-content h2 {
+    font-size: 27px;
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 17px;
+}
+
+.card-content p {
+    color: #eee7f0;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+/* CTA SECTION */
+
+.cta {
+    text-align: center;
+    padding: 75px 15px 85px;
+    position: relative;
+    z-index: 1;
+    background: radial-gradient(
+        ellipse at bottom,
+        rgba(80,20,100,.25),
+        transparent 65%
+    );
+}
+
+.cta h2 {
+    font-size: clamp(28px, 4vw, 43px);
+    font-weight: 900;
+    margin-bottom: 18px;
+}
+
+.cta p {
+    color: #ded5e3;
+    font-size: 19px;
+    margin-bottom: 30px;
+}
+
+.cta a {
+    display: inline-block;
+    padding: 18px 48px;
+    border-radius: 40px;
+    background: linear-gradient(100deg, #e52fc8, #7622bd);
+    color: white;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.cta a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(229,47,200,.3);
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 750px) {
+
+    nav {
+        flex-direction: column;
+        gap: 22px;
+        padding: 22px 10px;
+    }
+
+    .logo {
+        font-size: 32px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .heading {
+        padding: 55px 15px 40px;
+    }
+
+    .heading .label {
+        font-size: 12px;
+        letter-spacing: 5px;
+    }
+
+    .heading h1 {
+        font-size: 40px;
+    }
+
+    .heading p {
+        font-size: 16px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+        gap: 18px;
+    }
+
+    .service-card {
+        height: 290px;
+    }
+
+    .card-content {
+        left: 22px;
+        top: 22px;
+        width: calc(100% - 44px);
+        max-width: 260px;
+    }
+
+    .icon {
+        width: 52px;
+        height: 52px;
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+
+    .card-content h2 {
+        font-size: 23px;
+        margin-bottom: 12px;
+    }
+
+    .card-content p {
+        font-size: 13px;
+    }
+
+    .cta {
+        padding: 65px 15px;
+    }
+
+    .cta p {
+        font-size: 16px;
+    }
+
+    .cta a {
+        padding: 15px 38px;
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 380px) {
+    .heading h1 {
+        font-size: 34px;
+    }
+
+    .service-card {
+        height: 280px;
+    }
+
+    .card-content p {
+        font-size: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- NAVIGATION -->
+<!-- NAVIGATION -->
+
+<nav>
+    <a href="./index.html" class="logo">
+        My<span>Lient.</span>
+        <small>Digital Marketing</small>
+    </a>
+
+    <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./services.html" class="active">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="./index.html#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- PAGE HEADING -->
+
+<section class="heading">
+
+    <div class="label">WHAT WE DO</div>
+
+    <h1>
+        Our Digital <span>Services</span>
+    </h1>
+
+    <p>
+        Creative ideas, smart strategies and powerful<br>
+        digital solutions to help your brand grow.
+    </p>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services-grid">
+
+    <!-- DIGITAL MARKETING -->
+
+    <div class="service-card">
+
+        <img src="images/digital-marketing.jpg" alt="Digital Marketing">
+
+        <div class="card-content">
+
+            <div class="icon">♧</div>
+
+            <h2>Digital<br>Marketing</h2>
+
+            <p>
+                Strategic digital campaigns that connect
+                your brand with the right audience and
+                support business growth.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- CREATIVE DESIGN -->
+
+    <div class="service-card">
+
+        <img src="images/creative-design.png" alt="Creative Design">
+        <div class="card-content">
+
+            <div class="icon">✎</div>
+
+            <h2>Creative<br>Design</h2>
+
+            <p>
+                Professional social media creatives,
+                advertisements and visual content that
+                make your brand stand out.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- WEB DEVELOPMENT -->
+
+    <div class="service-card">
+
+        <img src="images/web-development.png" alt="Web Development">
+        <div class="card-content">
+
+            <div class="icon">&lt;/&gt;</div>
+
+            <h2>Web<br>Development</h2>
+
+            <p>
+                Modern, responsive and user-friendly
+                websites designed to build your
+                digital presence.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- BRAND STRATEGY -->
+
+    <div class="service-card">
+
+        <img src="images/brand-strategy.png" alt="Brand Strategy">
+        <div class="card-content">
+
+            <div class="icon">◇</div>
+
+            <h2>Brand<br>Strategy</h2>
+
+            <p>
+                Build a memorable brand identity with
+                clear positioning and creative
+                communication.
+            </p>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- CALL TO ACTION -->
+
+<section class="cta">
+
+    <h2>Ready to Grow Your Brand?</h2>
+
+    <p>
+        Let's create something meaningful together.
+    </p>
+
+    <a href="index.html#contact">
+        Let's Talk →
+    </a>
+
+</section>
+
+</div>
+
+</body>
+</html>

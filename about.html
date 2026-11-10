@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | MyLient</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #08060d;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .about-page {
+            min-height: 100vh;
+            padding: 25px 7%;
+            background:
+                radial-gradient(circle at 80% 50%, #29102f 0%, transparent 40%),
+                #08060d;
+        }
+
+        .about-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .about-logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .about-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .about-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .about-links a:hover {
+            color: #ed70e9;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            min-height: 75vh;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-label {
+            color: #ed70e9;
+            letter-spacing: 4px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .about-text h1 {
+            font-size: clamp(40px, 6vw, 70px);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .about-text h1 span {
+            color: #ed70e9;
+        }
+
+        .about-text p {
+            color: #c5bdca;
+            font-size: 16px;
+            line-height: 1.9;
+            max-width: 550px;
+            margin-bottom: 25px;
+        }
+
+        .about-points {
+            line-height: 2.5;
+            color: #ffffff;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 520px;
+            border-radius: 25px;
+        }
+
+        @media(max-width: 700px) {
+            .about-nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .about-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+                padding: 60px 0;
+                gap: 35px;
+            }
+
+            .about-text h1 {
+                font-size: 42px;
+            }
+        }
+        /* Smooth Page Transition */
+
+body {
+    animation: pageSlideIn 0.5s ease both;
+}
+
+@keyframes pageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(45px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+body.page-leave {
+    animation: pageSlideOut 0.35s ease both;
+}
+
+@keyframes pageSlideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-45px);
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="about-page">
+
+        <header class="about-nav">
+            <a href="index.html" class="about-logo">MyLient.</a>
+
+            <nav class="about-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#portfolio">Portfolio</a>
+                <a href="index.html#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main class="about-content">
+
+            <div class="about-text">
+                <div class="about-label">ABOUT MYLIENT</div>
+
+                <h1>
+                    Creativity Meets
+                    <span>Innovation.</span>
+                </h1>
+
+                <p>
+                    MyLient is a digital marketing and creative
+                    solutions agency focused on helping brands
+                    grow in the digital world.
+                </p>
+
+                <p>
+                    From creative design and digital marketing
+                    to powerful web solutions, we turn ideas
+                    into meaningful digital experiences.
+                </p>
+
+                <div class="about-points">
+                    ✦ Creative Approach<br>
+                    ✦ Result Driven Strategies<br>
+                    ✦ Dedicated Support
+                </div>
+            </div>
+
+            <div class="about-image">
+                <img
+    src="./about-image.png"
+    alt="MyLient Digital Creative Studio"
+>
+            </div>
+
+        </main>
+
+    </div>
+<script>
+
+</script>
+</body>
+</html>

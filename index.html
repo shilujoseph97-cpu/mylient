@@ -1,658 +1,1122 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyLient | Digital Marketing Agency</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyLient - Digital Marketing</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+    /* OUR DIGITAL UNIVERSE */
+
+.digital-universe {
+    position: relative;
+    padding: 100px 5%;
+    background: #050305;
+    text-align: center;
+    overflow: hidden;
+}
+
+.universe-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #ed70e9;
+    margin-bottom: 15px;
+}
+
+.universe-subtitle {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 55px;
+}
+
+.service-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.service-card {
+    padding: 35px 22px;
+    background: linear-gradient(145deg, #171017, #080608);
+    border: 1px solid rgba(237,85,231,.35);
+    border-radius: 12px;
+    transition: .3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: #ed55e7;
+    box-shadow: 0 0 25px rgba(237,85,231,.15);
+}
+
+.service-icon {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: #f078ec;
+    font-size: 17px;
+    margin-bottom: 13px;
+}
+
+.service-card p {
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+@media(max-width:700px) {
+    .digital-universe {
+        padding: 70px 20px;
+    }
+
+    .universe-title {
+        font-size: 27px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    padding: 25px 5%;
+    background: #030303;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.075) 1px, transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.075) 1px, transparent 1px);
+    background-size: 52px 52px;
+}
+
+header {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ed55e7;
+    position: relative;
+    z-index: 5;
+}
+
+.logo {
+    color: #f06bea;
+    font-size: 25px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 32px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+}
+
+nav a:hover {
+    color: #ed55e7;
+}
+
+.signup {
+    border: 1px solid #d94dd5;
+    padding: 7px 13px;
+}
+
+.content {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    min-height: calc(100vh - 120px);
+}
+
+.space-word {
+    position: absolute;
+    top: 3px;
+    left: 13%;
+    font-size: clamp(100px,13vw,190px);
+    font-weight: 800;
+    letter-spacing: -.075em;
+    color: rgba(190,180,190,.22);
+}
+
+.copy {
+    position: absolute;
+    z-index: 3;
+    left: 3%;
+    top: 43%;
+    width: 320px;
+}
+
+.copy h1 {
+    font-size: 30px;
+    color: #ed70e9;
+    margin-bottom: 26px;
+}
+
+.copy p {
+    font-size: 10px;
+    line-height: 1.5;
+    max-width: 245px;
+    margin-bottom: 70px;
+}
+
+.subscribe {
+    display: flex;
+    gap: 8px;
+    width: 260px;
+}
+
+.subscribe input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    padding: 10px;
+    background: linear-gradient(100deg,#e638d9,#f78be9);
+    color: white;
+}
+
+.subscribe input::placeholder {
+    color: white;
+}
+
+.subscribe button {
+    border: none;
+    padding: 0 13px;
+    background: #ed55e7;
+    color: white;
+    cursor: pointer;
+}
+
+.astronaut {
+    position: absolute;
+    width: min(48vw,510px);
+    right: 15%;
+    bottom: -4%;
+    z-index: 2;
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 20px rgba(226,62,225,.18));
+}
+
+
+.star {
+    position: absolute;
+    color: white;
+    text-shadow: 0 0 9px white;
+}
+
+.s1 { left: 12%; top: 20%; }
+.s2 { right: 8%; top: 15%; font-size: 23px; }
+.s3 { left: 4%; top: 57%; }
+.s4 { right: 14%; top: 67%; font-size: 23px; }
+
+#msg {
+    color: #f38aef;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+@media(max-width:700px) {
+    .hero {
+        padding: 18px 22px;
+        min-height: 100vh;
+    }
+
+    header {
+        height: 45px;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 50px;
+        background: #090609;
+        padding: 18px;
+        flex-direction: column;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    .menu {
+        display: block;
+        background: none;
+        color: white;
+        border: none;
+        font-size: 25px;
+    }
+
+    .space-word {
+        top: 7%;
+        left: 0;
+        font-size: 17vw;
+    }
+
+    .copy {
+        left: 0;
+        top: 31%;
+        width: 70%;
+    }
+
+    .copy h1 {
+        font-size: 25px;
+    }
+
+    .copy p {
+        margin-bottom: 28px;
+    }
+
+    .astronaut {
+        width: 76vw;
+        right: -5%;
+        bottom: 0;
+    }
+}
+
+@media(min-width:701px) {
+    .menu {
+        display: none;
+    }
+}
+/* MYLIENT NEW HOME PAGE */
+
+.home-page {
+    background: #05030a;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+.home-nav {
+    height: 85px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(220,80,255,.2);
+    position: relative;
+    z-index: 10;
+}
+
+.home-logo {
+    color: #ed70e9;
+    font-size: 30px;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.home-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.home-links a {
+    color: #ddd;
+    font-size: 13px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.home-links a:hover {
+    color: #ed70e9;
+}
+
+.home-links .home-contact {
+    padding: 12px 22px;
+    border: 1px solid #ed70e9;
+    border-radius: 30px;
+    color: #fff;
+}
+
+.home-hero {
+    min-height: 680px;
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background:
+        radial-gradient(ellipse at 75% 50%, rgba(140,40,190,.2), transparent 50%),
+        linear-gradient(135deg,#080510,#100719,#05030a);
+}
+
+.home-copy {
+    width: 50%;
+    position: relative;
+    z-index: 2;
+}
+
+.home-tag,
+.section-label {
+    color: #ed70e9;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.home-copy h1 {
+    font-size: clamp(55px,7vw,100px);
+    line-height: .98;
+    font-weight: 900;
+    letter-spacing: -5px;
+    margin-bottom: 28px;
+}
+
+.home-copy h1 span,
+.home-services h2 span,
+.why-copy h2 span {
+    color: #ed70e9;
+    text-shadow: 0 0 30px rgba(237,112,233,.3);
+}
+
+.home-description {
+    color: #aaa;
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 480px;
+    margin-bottom: 30px;
+}
+
+.home-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.home-btn {
+    padding: 15px 23px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.home-btn.primary {
+    background: linear-gradient(100deg,#d83bd5,#933bdb);
+    color: white;
+    box-shadow: 0 0 25px rgba(216,59,213,.25);
+}
+
+.home-btn.secondary {
+    border: 1px solid #777;
+    color: white;
+}
+
+.home-btn:hover {
+    transform: translateY(-4px);
+}
+
+.home-features {
+    display: flex;
+    gap: 45px;
+    margin-top: 65px;
+}
+
+.home-feature {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.home-feature strong {
+    font-size: 15px;
+    color: #fff;
+}
+
+.home-feature span {
+    font-size: 11px;
+    color: #999;
+}
+
+.home-astronaut {
+    width: 48%;
+    max-width: 580px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 35px rgba(194,55,255,.3));
+}
+
+
+/* SERVICES */
+
+.home-services {
+    padding: 100px 8%;
+    text-align: center;
+    background: #08050d;
+}
+
+.home-services h2,
+.why-copy h2 {
+    font-size: clamp(32px,4vw,48px);
+    font-weight: 800;
+    margin-bottom: 55px;
+}
+
+.home-service-grid {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 22px;
+}
+
+.home-service-card {
+    padding: 35px 22px;
+    text-align: left;
+    border: 1px solid rgba(237,112,233,.2);
+    border-radius: 18px;
+    background: linear-gradient(145deg,#1b1023,#0b0710);
+    transition: .3s;
+}
+
+.home-service-card:hover {
+    transform: translateY(-8px);
+    border-color: #ed70e9;
+    box-shadow: 0 10px 35px rgba(237,112,233,.12);
+}
+
+.home-service-card .service-icon {
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+.home-service-card h3 {
+    color: #ed70e9;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.home-service-card p {
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* WHY MYLIENT */
+
+.home-why {
+    padding: 110px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    background: #05030a;
+}
+
+.why-image {
+    width: 45%;
+}
+
+.why-image img {
+    width: 100%;
+    filter: drop-shadow(0 0 30px rgba(190,50,255,.2));
+}
+
+.why-copy {
+    max-width: 480px;
+}
+
+.why-copy h2 {
+    margin-bottom: 25px;
+}
+
+.why-copy p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.why-points {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: #ed70e9;
+    font-size: 14px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:900px) {
+    .home-service-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .home-hero {
+        padding: 65px 6%;
+    }
+
+    .home-features {
+        gap: 20px;
+    }
+}
+
+@media(max-width:700px) {
+    .home-nav {
+        height: auto;
+        padding: 22px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .home-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .home-links a {
+        font-size: 11px;
+    }
+
+    .home-hero {
+        flex-direction: column;
+        padding: 65px 25px 35px;
+        text-align: center;
+    }
+
+    .home-copy {
+        width: 100%;
+    }
+
+    .home-copy h1 {
+        font-size: 60px;
+        letter-spacing: -3px;
+    }
+
+    .home-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-buttons,
+    .home-features {
+        justify-content: center;
+    }
+
+    .home-features {
+        gap: 18px;
+        margin-top: 40px;
+    }
+
+    .home-feature strong {
+        font-size: 12px;
+    }
+
+    .home-feature span {
+        font-size: 9px;
+    }
+
+    .home-astronaut {
+        width: 90%;
+        margin-top: 35px;
+    }
+
+    .home-services {
+        padding: 75px 22px;
+    }
+
+    .home-service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-why {
+        flex-direction: column;
+        padding: 75px 25px;
+        gap: 35px;
+    }
+
+    .why-image {
+        width: 100%;
+    }
+
+    .why-copy {
+        text-align: center;
+    }
+}
+.home-contact {
+    background: linear-gradient(90deg, #df35d5, #9638e8);
+    color: #ffffff !important;
+    text-decoration: none !important;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.home-contact:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(223, 53, 213, 0.3);
+}
+.home-hero {
+    min-height: 680px;
+    padding-top: 65px;
+    padding-bottom: 65px;
+    align-items: center;
+}
+
+.home-copy {
+    padding-bottom: 10px;
+}
+
+.home-features {
+    margin-top: 45px;
+}
+.home-service-grid {
+    gap: 24px;
+}
+
+.home-service-card {
+    background: linear-gradient(
+        145deg,
+        rgba(35, 18, 40, 0.75),
+        rgba(12, 8, 18, 0.95)
+    );
+    border: 1px solid rgba(237, 112, 233, 0.22);
+    border-radius: 22px;
+    padding: 32px 26px;
+    min-height: 245px;
+    transition: all 0.3s ease;
+}
+
+.home-service-card:hover {
+    transform: translateY(-8px);
+    border-color: #ed70e9;
+    box-shadow: 0 12px 35px rgba(237, 112, 233, 0.12);
+}
+
+.home-service-card h3 {
+    margin-top: 25px;
+    color: #ed70e9;
+}
+
+.home-service-card p {
+    line-height: 1.8;
+}
+/* WHY MYLIENT - PREMIUM DESIGN */
+
+.home-why {
+    padding: 120px 8%;
+    gap: 90px;
+    background:
+        radial-gradient(
+            circle at 20% 50%,
+            rgba(150, 45, 180, 0.10),
+            transparent 45%
+        ),
+        #05030a;
+}
+
+.why-image {
+    width: 48%;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(237, 112, 233, 0.25);
+    box-shadow: 0 15px 45px rgba(150, 45, 180, 0.12);
+}
+
+.why-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.why-copy {
+    flex: 1;
+    max-width: 500px;
+}
+
+.why-copy h2 {
+    line-height: 1.2;
+    font-size: clamp(34px, 4vw, 48px);
+}
+
+.why-copy p {
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.why-points {
+    gap: 20px;
+    font-weight: 600;
+}
+/* FIX ABOUT SECTION LAYOUT */
+
+.home-why {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    padding: 100px 8%;
+    text-align: left;
+}
+
+.why-image {
+    flex: 0 0 48%;
+    width: 48%;
+}
+
+.why-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.why-copy {
+    flex: 1;
+    max-width: 500px;
+    text-align: left;
+}
+
+@media (max-width: 700px) {
+    .home-why {
+        flex-direction: column !important;
+        padding: 70px 25px;
+    }
+
+    .why-image {
+        width: 100%;
+        flex: auto;
+    }
+
+    .why-copy {
+        width: 100%;
+        text-align: center;
+    }
+}/* FINAL ABOUT SECTION FIX */
+
+@media (min-width: 701px) {
+    .home-why {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        flex-direction: unset !important;
+        align-items: center !important;
+        gap: 60px !important;
+        padding: 100px 8% !important;
+        text-align: left !important;
+    }
+
+    .why-image {
+        width: 100% !important;
+        min-width: 0;
+    }
+
+    .why-copy {
+        width: 100% !important;
+        max-width: 500px;
+        text-align: left !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .home-why {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .why-image,
+    .why-copy {
+        width: 100% !important;
+    }
+}
+html {
+    scroll-behavior: smooth;
+}
+
+#about {
+    scroll-margin-top: 30px;
+}
+/* Smooth Page Transition */
+
+body {
+    animation: pageSlideIn 0.5s ease both;
+}
+
+@keyframes pageSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(45px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+body.page-leave {
+    animation: pageSlideOut 0.35s ease both;
+}
+
+@keyframes pageSlideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-45px);
+    }
+}
+</style>
 </head>
 
 <body>
-    <nav>
-  <div class="logo">MyLient</div>
+    <!-- NEW MYLIENT HOME PAGE -->
 
-    <ul id="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+<section class="home-page" id="home">
 
-    <a href="#contact" class="btn">Get Started</a>
+<header class="home-nav">
+    <a href="#home" class="home-logo">MyLient<span>.</span></a>
 
-    <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-
+    <nav class="home-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="./services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="index.html#contact">Contact</a>
 </nav>
 
 </header>
-    
+    <!-- HERO SECTION -->
 
+    <div class="home-hero">
 
-<section class="hero">
+        <div class="home-copy">
 
-    <div class="hero-content">
-        <h1>Grow Your Business With <span>Digital Marketing</span></h1>
+            <div class="home-tag">
+                CREATIVE DIGITAL SOLUTIONS
+            </div>
+
+            <h1>
+                IDEAS<br>
+                <span>BEYOND</span><br>
+                LIMITS
+            </h1>
+
+            <p class="home-description">
+                We help brands grow with creative design,
+                digital marketing and powerful web solutions.
+            </p>
+
+            <div class="home-buttons">
+
+                <a href="./services.html" class="home-btn primary"></a>
+                    Explore Our Services →
+                </a>
+
+                <a href="#about" class="home-btn secondary">
+                    Discover MyLient →
+                </a>
+
+            </div>
+
+            <div class="home-features">
+
+                <div class="home-feature">
+                    <strong>Creative</strong>
+                    <span>Fresh Ideas</span>
+                </div>
+
+                <div class="home-feature">
+                    <strong>Digital</strong>
+                    <span>Smart Solutions</span>
+                </div>
+
+                <div class="home-feature">
+                    <strong>Growth</strong>
+                    <span>Better Experiences</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <img
+            src="./home-astronaut.png"
+            class="home-astronaut"
+            alt="MyLient astronaut working on a laptop on the moon"
+        >
+
+    </div>
+
+    <!-- OUR DIGITAL UNIVERSE -->
+
+    <section class="home-services" id="services">
+
+        <div class="section-label">WHAT WE DO</div>
+
+        <h2>
+            Our Digital <span>Universe</span>
+        </h2>
+
+        <div class="home-service-grid">
+
+            <div class="home-service-card">
+                <div class="service-icon">📢</div>
+                <h3>Digital Marketing</h3>
+                <p>
+                    Reach the right audience with
+                    data-driven marketing strategies.
+                </p>
+            </div>
+
+            <div class="home-service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Creative Design</h3>
+                <p>
+                    Eye-catching designs that tell
+                    your brand story.
+                </p>
+            </div>
+
+            <div class="home-service-card">
+                <div class="service-icon">💻</div>
+                <h3>Web Development</h3>
+                <p>
+                    Modern, responsive websites
+                    that perform.
+                </p>
+            </div>
+
+            <div class="home-service-card">
+                <div class="service-icon">📊</div>
+                <h3>Brand Strategy</h3>
+                <p>
+                    Build a strong identity
+                    that stands out.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- WHY MYLIENT -->
+
+<section class="home-why" id="about">
+
+    <div class="why-image">
+        <img
+            src="./a_cinematic_photorealistic_space_landscape_a_dra.png"
+            alt="MyLient flag on a lunar landscape"
+        >
+    </div>
+
+    <div class="why-copy">
+
+        <div class="section-label">WHY MYLIENT</div>
+
+        <h2>
+            Ideas Into <span>Impact</span>
+        </h2>
 
         <p>
-            We help brands grow online through SEO, Social Media Marketing,
-            Google Ads, Content Creation and Web Solutions.
+            We combine creativity, strategy and
+            technology to deliver meaningful digital
+            experiences that help businesses grow.
         </p>
 
-        <a href="#services" class="btn">Explore Services</a>
-    </div>
-
-    <!-- Digital Mascot -->
-    <div class="digital-mascot">
-        <img src="digital-marketer.png" alt="Digital Marketing Expert">
-    </div>
-
-</section>
-    <section class="section-wave">
-
-    
-    <div class="content">
-        <!-- Section Content -->
-    </div>
-
-    <div class="wave"></div>
-
-</section>
-<div class="wave"></div>
-<div class="hero-content">
-
-<h1>
-Grow Your Business With 
-<span>Digital Marketing</span>
-</h1>
-
-<p>
-We help brands grow online through SEO, Social Media Marketing,
-Google Ads, Content Creation and Web Solutions.
-</p>
-
-<a href="#services" class="btn">
-Explore Services
-</a>
-
-</div>
-
-
-<div class="digital-mascot">
-    <img src="digital-marketer.png" alt="Digital Marketing Expert">
-
-</div>
-<div class="wave-container">
-    <div class="wave wave1"></div>
-    <div class="wave wave2"></div>
-    <div class="wave wave3"></div>
-</div>
-</section>
-
-
-
-<section id="about">
-    <section class="section-wave">
-    
-    <div class="content">
-        <!-- Section Content -->
-    </div>
-
-    <div class="wave"></div>
-
-</section>
-
-<h2>About MyLient</h2>
-
-<p>
-MyLient is a creative digital marketing agency helping businesses
-build strong online presence and achieve measurable growth.
-</p>
-
-</section>
-
-
-
-<section id="services">
-    <section class="section-wave">
-    
-    <div class="content">
-        <!-- Section Content -->
-    </div>
-
-    <div class="wave"></div>
-
-</section>
-
-<h2>Our Services</h2>
-
-
-<div class="service-box">
-
-<div>
-<h3>SEO</h3>
-<p>Improve search ranking and attract organic traffic.</p>
-</div>
-
-
-<div>
-<h3>Social Media Marketing</h3>
-<p>Create engaging campaigns for your audience.</p>
-</div>
-
-
-<div>
-<h3>Google Ads</h3>
-<p>Reach customers with targeted advertising.</p>
-</div>
-
-
-<div>
-<h3>Website Development</h3>
-<p>Modern and responsive websites for businesses.</p>
-</div>
-
-</div>
-
-
-</section>
-<section id="portfolio">
-<section class="section-wave">
-    
-    <div class="content">
-        <!-- Section Content -->
-    </div>
-
-    <div class="wave"></div>
-
-</section>
-<h2>Our Portfolio</h2>
-<section class="section-wave">
-    
-    <div class="content">
-        <!-- Section Content -->
-    </div>
-
-    <div class="wave"></div>
-
-</section>
-
-<p>
-Creative campaigns and digital solutions that help brands grow online.
-</p>
-
-
-<div class="portfolio-box">
-
-<div>
-<h3>SEO Projects</h3>
-<p>
-Improved search visibility through strategic SEO techniques.
-</p>
-</div>
-
-
-<div>
-<h3>Social Media Campaigns</h3>
-<p>
-Engaging content and campaigns for better audience reach.
-</p>
-</div>
-
-
-<div>
-<h3>Website Solutions</h3>
-<p>
-Modern responsive websites designed for businesses.
-</p>
-</div>
-
-
-</div>
-</section>
-
-<!-- Achievements Section -->
- </section>
-
-<section id="stats">
-    <section class="section-wave">
-    
-    <div class="content">
-        <!-- Section Content -->
-    </div>
-
-    <div class="wave"></div>
-
-</section>
-
-    <h2>Our Achievements</h2>
-
-    <p>
-        Numbers that showcase our growth and commitment towards digital success.
-    </p>
-
-
-    <div class="stat-card">
-    <h3 class="counter" data-target="100">0</h3>
-    <p>Projects Completed</p>
-</div>
-
-<div class="stat-card">
-    <h3 class="counter" data-target="50">0</h3>
-    <p>Happy Clients</p>
-</div>
-
-<div class="stat-card">
-    <h3 class="counter" data-target="5">0</h3>
-    <p>Years Experience</p>
-</div>
-
-<div class="stat-card">
-    <h3>24/7</h3>
-    <p>Customer Support</p>
-</div>
-</section>
-<section id="testimonials">
-
-    <h2>What Our Clients Say</h2>
-
-    <p>Trusted by businesses across different industries.</p>
-
-    <div class="testimonial-container">
-
-        <div class="testimonial-card">
-            <p>
-                "MyLient transformed our online presence. Our website traffic doubled within three months."
-            </p>
-
-            <h3>Rahul Nair</h3>
-
-            <span>CEO, TechNova</span>
-
-        </div>
-
-        <div class="testimonial-card">
-
-            <p>
-                "Professional team with excellent SEO and social media strategies. Highly recommended."
-            </p>
-
-            <h3>Anjali Joseph</h3>
-
-            <span>Founder, Bloom Fashion</span>
-
-        </div>
-
-        <div class="testimonial-card">
-    <p>
-        "The website they built exceeded our expectations and generated quality leads."
-    </p>
-
-    <h3>Arjun Mathew</h3>
-
-    <span>Business Owner</span>
-
-</div>
-
-</div>
-</section>
-
-<section id="process">
-    <section class="section-wave">
-    
-    <div class="content">
-        <!-- Section Content -->
-    </div>
-
-    <div class="wave"></div>
-
-</section>
-
-    <h2>Our Process</h2>
-
-    <p>We follow a proven strategy to grow your business online.</p>
-
-    <div class="process-container">
-
-        <div class="process-card">
-            <div class="number">01</div>
-            <h3>Research</h3>
-            <p>We understand your business, audience, and competitors.</p>
-        </div>
-
-        <div class="process-card">
-    <div class="number">04</div>
-    <h3>Growth</h3>
-    <p>We track performance, optimize campaigns, and deliver measurable results.</p>
-</div>
-</section>
-<section id="pricing">
-    <section class="section-wave">
-    
-    <div class="content">
-        <!-- Section Content -->
-    </div>
-
-    <div class="wave"></div>
-
-</section>
-
-    <h2>Our Pricing Plans</h2>
-
-    <p>Choose the perfect plan for your business growth.</p>
-
-    <div class="pricing-container">
-
-        <div class="pricing-card">
-            <h3>Starter</h3>
-            <h1>₹9,999</h1>
-            <p>/month</p>
-
-            <ul>
-                <li>✔ SEO Optimization</li>
-                <li>✔ 10 Social Media Posts</li>
-                <li>✔ Google Business Profile</li>
-                <li>✔ Monthly Report</li>
-            </ul>
-
-            <a href="#contact" class="btn">Choose Plan</a>
-        </div>
-
-        <div class="pricing-card featured">
-            <span class="badge">Most Popular</span>
-
-            <h3>Professional</h3>
-
-            <h1>₹24,999</h1>
-
-            <p>/month</p>
-
-            <ul>
-                <li>✔ Complete SEO</li>
-                <li>✔ Google Ads Management</li>
-                <li>✔ Meta Ads Management</li>
-                <li>✔ Website Maintenance</li>
-                <li>✔ Weekly Reports</li>
-            </ul>
-
-            <a href="#contact" class="btn">Choose Plan</a>
-
-        </div>
-<div class="pricing-card">
-
-    <h3>Enterprise</h3>
-
-    <h1>Custom</h1>
-
-    <p>Contact Us</p>
-
-    <ul>
-        <li>✔ Complete Digital Marketing</li>
-        <li>✔ Dedicated Manager</li>
-        <li>✔ Branding Strategy</li>
-        <li>✔ Unlimited Support</li>
-    </ul>
-
-    <a href="#contact" class="btn">Contact Us</a>
-
-</div>
-
-</div>
-
-</section>
-        <section id="faq">
-            <section class="section-wave">
-    
-    <div class="content">
-        <!-- Section Content -->
-    </div>
-
-    <div class="wave"></div>
-
-</section>
-
-    <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-container">
-
-        <div class="faq-item">
-            <button class="faq-question">
-                What digital marketing services do you offer?
-            </button>
-
-            <div class="faq-answer">
-                <p>
-                    We provide SEO, Social Media Marketing, Google Ads,
-                    Meta Ads, Website Development, Content Creation,
-                    Email Marketing, and Branding solutions.
-                </p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">
-                How long does SEO take?
-            </button>
-
-            <div class="faq-answer">
-                <p>
-                    SEO is a long-term strategy. Most businesses see
-                    noticeable improvements within 3–6 months.
-                </p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">
-                Do you build responsive websites?
-            </button>
-
-            <div class="faq-answer">
-                <p>
-                    Yes. Every website we build is fully responsive,
-                    SEO-friendly, and optimized for all devices.
-                </p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">
-                How can I get started?
-            </button>
-
-            <div class="faq-answer">
-                <p>
-                    Simply contact us through the contact form or call us
-                    to discuss your project.
-                </p>
-            </div>
+        <div class="why-points">
+            <div>✦ Creative Approach</div>
+            <div>✦ Result Driven Strategies</div>
+            <div>✦ Dedicated Support</div>
         </div>
 
     </div>
 
-</section>
-
-
-
-<h2>Contact Us</h2>
-<section class="section-wave">
-    
-    <div class="content">
-        <!-- Section Content -->
-    </div>
-
-    <div class="wave"></div>
 
 </section>
 
-<p>Email: shilujoseph97@gmail.com</p>
-<p>Phone: 8301943230</p>
-<p>Location: Kottayam, Kerala</p>
-
-
-</section>
-<section id="contact">
-    <section class="section-wave">
-    
-    <div class="content">
-        <!-- Section Content -->
-    </div>
-
-    <div class="wave"></div>
-
 </section>
 
-    <h2>Let's Grow Your Business</h2>
+<!-- END NEW HOME PAGE -->
 
-    <p>Have a project in mind? We'd love to hear from you.</p>
+<script>
 
-    <div class="contact-container">
+document.addEventListener("DOMContentLoaded", function () {
 
-        <div class="contact-info">
-            <div class="social-icons">
+    // Mobile Menu
+    const menu = document.getElementById("menu");
+    const nav = document.getElementById("nav");
 
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    if (menu && nav) {
+        menu.addEventListener("click", function () {
+            nav.classList.toggle("open");
+        });
 
-    <a href="#"><i class="fab fa-instagram"></i></a>
+        nav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                nav.classList.remove("open");
+            });
+        });
+    }
 
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    // Email Subscription
+    const signup = document.getElementById("signup");
+    const msg = document.getElementById("msg");
 
-    <a href="#"><i class="fab fa-youtube"></i></a>
+    if (signup && msg) {
+        signup.addEventListener("submit", function (e) {
+            e.preventDefault();
+            msg.textContent = "Thank you for subscribing!";
+            signup.reset();
+        });
+    }
 
-</div>
+    // Continuous Astronaut Animation
+    const astronaut = document.querySelector(".astronaut");
 
-            <h3>Get In Touch</h3>
+    if (astronaut) {
+        astronaut.animate(
+            [
+                { transform: "translateY(0px)" },
+                { transform: "translateY(-35px)" },
+                { transform: "translateY(0px)" }
+            ],
+            {
+                duration: 2500,
+                iterations: Infinity,
+                easing: "ease-in-out"
+            }
+        );
+    }
 
-            <p><strong>Email:</strong> shilujoseph97@gmail.com</p>
-
-            <p><strong>Phone:</strong> +91 83019 43230</p>
-
-            <p><strong>Location:</strong> Kottayam, Kerala, India</p>
-
-            <p>
-                We help businesses grow through SEO, Social Media Marketing,
-                Google Ads, Website Development and Branding.
-            </p>
-
-        </div>
-
-        <form class="contact-form">
-
-            <input type="text" placeholder="Your Name" required>
-
-            <input type="email" placeholder="Your Email" required>
-
-            <input type="tel" placeholder="Phone Number">
-
-            <select required>
-                <option>Select a Service</option>
-                <option>SEO</option>
-                <option>Social Media Marketing</option>
-                <option>Google Ads</option>
-                <option>Meta Ads</option>
-                <option>Website Development</option>
-            </select>
-
-            <textarea rows="6" placeholder="Your Message"></textarea>
-
-            <button class="btn">
-                Send Message
-            </button>
-
-        </form>
-
-    </div>
-
-</section>
-
-
-<p>
-© 2026 MyLient. All Rights Reserved.
-</p>
-
-</footer>
-
-
-<script src="script.js"></script>
-<footer>
-
-    <div class="footer-container">
-
-        <div class="footer-col">
-
-            <h2>MyLient</h2>
-
-            <p>
-                We help businesses grow with SEO, Digital Marketing,
-                Website Development, Google Ads, and Social Media Marketing.
-            </p>
-
-        </div>
-
-        <div class="footer-col">
-
-            <h3>Quick Links</h3>
-
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-        </div>
-
-        <div class="footer-col">
-
-            <h3>Our Services</h3>
-
-            <ul>
-                <li>SEO</li>
-                <li>Google Ads</li>
-                <li>Meta Ads</li>
-                <li>Website Development</li>
-                <li>Content Marketing</li>
-            </ul>
-
-        </div>
-
-        <div class="footer-col">
-
-            <h3>Contact Info</h3>
-
-            <p>Email: shilujoseph97@gmail.com</p>
-            <p>Phone: +91 83019 43230</p>
-            <p>Kottayam, Kerala</p>
-
-        </div>
-
-    </div>
-
-    <hr>
-
-    <div class="footer-bottom">
-
-    <footer>
-   ...
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-</html>
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/918301943230" class="floating-whatsapp" target="_blank">
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
+});
+       
+</script>
 </body>
 </html>
