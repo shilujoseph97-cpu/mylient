@@ -1,22 +1,35 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    const astronaut = document.querySelector(".astronaut");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const pages = document.querySelectorAll(".page");
 
-    console.log("Astronaut found:", astronaut);
+  function showPage(pageName) {
+    pages.forEach(page => {
+      page.classList.remove("active");
+    });
 
-    if (astronaut) {
-        astronaut.animate(
-            [
-                { transform: "translateY(0px)" },
-                { transform: "translateY(-100px)" },
-                { transform: "translateY(0px)" }
-            ],
-            {
-                duration: 2000,
-                iterations: Infinity,
-                easing: "ease-in-out"
-            }
-        );
+    const selectedPage = document.getElementById(pageName);
+
+    if (selectedPage) {
+      selectedPage.classList.add("active");
     }
+
+    navLinks.forEach(link => {
+      link.classList.toggle(
+        "active",
+        link.dataset.page === pageName
+      );
+    });
+
+    window.scrollTo(0, 0);
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      showPage(this.dataset.page);
+    });
+  });
 
 });
