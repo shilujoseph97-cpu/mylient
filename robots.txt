@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shilujoseph97-cpu.github.io/mylient/sitemap.xml
